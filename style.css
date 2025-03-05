@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     background-color: black;
-    color: rgb(241, 57, 57);
+    color: #00ff88;
+    font-family: 'Arial', sans-serif;
 }
 
 .countdown-container {
@@ -12,10 +13,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(45deg, #000000, #1a1a1a);
 }
 
 .countdown-timer {
-    border: 1px solid white;
+    border: 2px solid #00ff88;
     width: 250px; 
     height: 100px; 
     display: flex;
@@ -24,28 +26,47 @@
     font-size: 2em;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    transition-duration: 1s;
-
+    transition: all 0.5s ease;
+    box-shadow: 0 0 15px rgba(241, 57, 57, 0.3);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
 }
-.countdown-timer:hover{
+
+.countdown-timer:hover {
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(241, 57, 57, 0.5);
 }
+
 .countdownLable {
     margin-top: 20px;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    text-shadow: 0 0 5px rgba(241, 57, 57, 0.5);
 }
+
 .credit {
     position: fixed;
     bottom: 10px;
     right: 10px;
     font-size: 0.8em;
     color: rgb(241, 57, 57);
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
-.credit:hover{
+
+.credit:hover {
     font-size: larger;
+    background: rgba(241, 57, 57, 0.1);
+    transform: translateY(-2px);
 }
+
 @media (max-width: 768px) {
     .countdown-timer {
         width: 150px;
@@ -72,6 +93,17 @@
         right: 5px;
         font-size: 0.6em;
     }
+}
+
+/* Add animation for the countdown timer */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.countdown-timer {
+    animation: pulse 2s infinite;
 }
 
 
